@@ -12,6 +12,14 @@ namespace Bakery.Tests
             Bread.ClearAll();
             Pastry.ClearAll();
         }
+        //  Class Order tests
+        [TestMethod]
+        public void Test()
+        {
+            Order newOrder = new Order(10, 12);
+            Assert.AreEqual(typeof(Order), newOrder.GetType());
+        }
+
 
         // Class Bread tests
         [TestMethod]

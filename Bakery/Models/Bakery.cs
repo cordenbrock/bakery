@@ -1,11 +1,24 @@
 using System;
+using System.Collections.Generic;
 
 namespace Bakery.Models
 {
     // Order Class
     public class Order
     {
+        // Auto-implemented fields
+        public int BreadOrderCount { get; set; }
+        public int PastryOrderCount { get; set; }
+        public int OrderCost { get; set; }
 
+        // Order constructor
+        public Order(int breadOrderCount, int pastryOrderCount)
+        {
+            BreadOrderCount = breadOrderCount;
+            PastryOrderCount = pastryOrderCount;
+
+        }
+        
     }
 
 
@@ -14,7 +27,8 @@ namespace Bakery.Models
     public class Bread
     {
         // Auto-implemented fields
-        public int BreadCost { get; set; }
+        public int BreadCost { get; private set; }
+        private static List<Bread> _instances = new List<Bread> {};
 
         // Bread constructor
         public Bread(int breadCost)
@@ -43,16 +57,22 @@ namespace Bakery.Models
 
             return breadTotal;
         }
+
+        // Clear all current class instances
+        public static void ClearAll()
+        {
+            _instances.Clear();
+        }
     }
-    
-    
+
 
 
     // Pastry class
     public class Pastry
     {
         // Auto-implemented fields
-        public int PastryCost { get; set; }
+        public int PastryCost { get; private set; }
+        private static List<Pastry> _instances = new List<Pastry> {};
 
         // Pastry constructor
         public Pastry(int pastryCost)
@@ -84,5 +104,12 @@ namespace Bakery.Models
 
             return pastryTotal;
         }
+
+        // Clear all current class instances
+        public static void ClearAll()
+        {
+            _instances.Clear();
+        }
+
     }
 }

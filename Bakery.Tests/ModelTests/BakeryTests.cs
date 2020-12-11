@@ -23,5 +23,16 @@ namespace Bakery.Tests
 
             Assert.AreEqual(expectedAdjustment, bread.AdjustBreadCost(loaves));
         }
+        [TestMethod]
+        public void CalcBreadTotal_CalculateTotalCostOfBreadOrder_IntSum()
+        {
+            int expectedBreadTotal = 20;
+
+            Bread bread = new Bread(5);
+            int loaves = 6;
+            bread.AdjustBreadCost(loaves);
+
+            Assert.AreEqual(expectedBreadTotal, bread.CalcBreadTotal(loaves));
+        }
     }
 }

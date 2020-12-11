@@ -33,6 +33,15 @@ namespace Bakery.Models
             }
             return adjustment;
         }
+
+        // Calculate total cost of bread order 
+        public int CalcBreadTotal(int loaves) 
+        {
+            int adjustment = AdjustBreadCost(loaves);
+            int breadTotal = (loaves) * BreadCost - adjustment;
+            
+            return breadTotal;
+        }
     }
     
     

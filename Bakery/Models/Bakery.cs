@@ -29,8 +29,9 @@ namespace Bakery.Models
             if (loaves >= 3)
             {
                 double freeLoaves = loaves/3;
-                adjustment = 5 * (int)(Math.Floor(freeLoaves)); 
+                adjustment = BreadCost * (int)(Math.Floor(freeLoaves)); 
             }
+
             return adjustment;
         }
 
@@ -39,7 +40,7 @@ namespace Bakery.Models
         {
             int adjustment = AdjustBreadCost(loaves);
             int breadTotal = (loaves) * BreadCost - adjustment;
-            
+
             return breadTotal;
         }
     }
@@ -50,6 +51,16 @@ namespace Bakery.Models
     // Pastry class
     public class Pastry
     {
-        // code
+        // Auto-implemented fields
+        public int PastryCost { get; set; }
+
+        // Bread constructor
+        public Pastry(int pastryCost)
+        {
+            PastryCost = pastryCost;
+        }
+
+
+
     }
 }

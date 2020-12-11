@@ -3,11 +3,14 @@ using Bakery.Models;
 
 namespace Bakery.Tests
 {
-  [TestClass]
-  public class BakeryTests
-  {
-
-    // Test methods will go here.
-
-  }
+    [TestClass]
+    public class BakeryTests
+    {
+        [TestMethod]
+        public void Bread_ConstructsInstanceofBread_ObjBread()
+        {
+            Bread bread = new Bread(5);
+            Assert.AreEqual(typeof(Bread), bread.GetType());
+        }
+    }
 }

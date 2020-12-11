@@ -26,7 +26,7 @@ namespace Bakery.Tests
         [TestMethod]
         public void CalcBreadTotal_CalculateTotalCostOfBreadOrder_IntSum()
         {
-            int expectedBreadTotal = 0;
+            int expectedBreadTotal = 35;
 
             Bread bread = new Bread(5);
             int loaves = 10;

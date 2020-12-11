@@ -9,23 +9,38 @@ namespace Bakery.Tests
     {
         public void Dispose()
         {
-            Bread.ClearAll();
-            Pastry.ClearAll();
+            // Teardown, if needed
         }
         //  Class Order tests
         [TestMethod]
-        public void Test()
+        public void Order_ConstructsInstanceofOrder_ObjOrder()
         {
-            Order newOrder = new Order(10, 12);
+            Order newOrder = new Order(4, 12);
             Assert.AreEqual(typeof(Order), newOrder.GetType());
         }
+        // [TestMethod]
+        // public void CalcOrderTotalCost_CalculateCostOfBreadAndPastryOrders_Int()
+        // {
+        //     int breadCount = 4;
+        //     int pastryCount = 12;
+        //     int expectedTotalCost = 35;
+
+        //     Order newOrder = new Order(breadCount, pastryCount);
+        //     Bread bread = new Bread();
+        //     Pastry pastry = new Pastry(2);
+        //     int breadTotalCost = bread.CalcBreadTotalCost(newOrder.BreadOrderCount);
+        //     int pastryTotalCost = pastry.CalcPastryTotalCost(newOrder.PastryOrderCount);
+        //     int totalCost = newOrder.CalcOrderTotalCost(breadTotalCost, pastryTotalCost);
+
+        //     Assert.AreEqual(expectedTotalCost, totalCost);
+        // }
 
 
         // Class Bread tests
         [TestMethod]
         public void Bread_ConstructsInstanceofBread_ObjBread()
         {
-            Bread bread = new Bread(5);
+            Bread bread = new Bread();
             Assert.AreEqual(typeof(Bread), bread.GetType());
         }
         [TestMethod]
@@ -33,20 +48,20 @@ namespace Bakery.Tests
         {
             int expectedAdjustment = 10;
 
-            Bread bread = new Bread(5);
+            Bread bread = new Bread();
             int loaves = 8;
             int adjustment = bread.AdjustBreadCost(loaves);
 
             Assert.AreEqual(expectedAdjustment, adjustment);
         }
         [TestMethod]
-        public void CalcBreadTotal_CalculateTotalCostOfBreadOrder_IntSum()
+        public void CalcBreadTotalCost_CalculateTotalCostOfBreadOrder_IntSum()
         {
             int expectedBreadTotal = 35;
 
-            Bread bread = new Bread(5);
+            Bread bread = new Bread();
             int loaves = 10;
-            int breadTotal = bread.CalcBreadTotal(loaves);
+            int breadTotal = bread.CalcBreadTotalCost(loaves);
 
             Assert.AreEqual(expectedBreadTotal, breadTotal);
         }
@@ -55,7 +70,7 @@ namespace Bakery.Tests
         [TestMethod]
         public void Pastry_ConstructsInstanceofPastry_ObjPastry()
         {
-            Pastry pastry = new Pastry(2);
+            Pastry pastry = new Pastry();
             Assert.AreEqual(typeof(Pastry), pastry.GetType());
         }
         [TestMethod]
@@ -63,20 +78,20 @@ namespace Bakery.Tests
         {
             int expectedAdjustment = 4;
 
-            Pastry pastry = new Pastry(2);
+            Pastry pastry = new Pastry();
             int pastries = 12;
             int adjustment = pastry.AdjustPastryCost(pastries);
 
             Assert.AreEqual(expectedAdjustment, adjustment);
         }
         [TestMethod]
-        public void CalcPastryTotal_CalculateTotalCostOfPastryOrder_IntSum()
+        public void CalcPastryTotalCost_CalculateTotalCostOfPastryOrder_IntSum()
         {
             int expectedPastryTotal = 20;
 
-            Pastry pastry = new Pastry(2);
+            Pastry pastry = new Pastry();
             int pastries = 12;
-            int pastryTotal = pastry.CalcPastryTotal(pastries);
+            int pastryTotal = pastry.CalcPastryTotalCost(pastries);
 
             Assert.AreEqual(expectedPastryTotal, pastryTotal);
         }

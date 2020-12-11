@@ -16,7 +16,6 @@ namespace Bakery.Models
         {
             BreadOrderCount = breadOrderCount;
             PastryOrderCount = pastryOrderCount;
-
         }
         
     }
@@ -28,12 +27,11 @@ namespace Bakery.Models
     {
         // Auto-implemented fields
         public int BreadCost { get; private set; }
-        private static List<Bread> _instances = new List<Bread> {};
 
         // Bread constructor
-        public Bread(int breadCost)
+        public Bread()
         {
-            BreadCost = breadCost;
+            BreadCost = 5;
         }
 
         // Calculate bread deal adjustment
@@ -50,18 +48,12 @@ namespace Bakery.Models
         }
 
         // Calculate total cost of bread order 
-        public int CalcBreadTotal(int loaves) 
+        public int CalcBreadTotalCost(int loaves) 
         {
             int adjustment = AdjustBreadCost(loaves);
             int breadTotal = (loaves) * BreadCost - adjustment;
 
             return breadTotal;
-        }
-
-        // Clear all current class instances
-        public static void ClearAll()
-        {
-            _instances.Clear();
         }
     }
 
@@ -72,12 +64,11 @@ namespace Bakery.Models
     {
         // Auto-implemented fields
         public int PastryCost { get; private set; }
-        private static List<Pastry> _instances = new List<Pastry> {};
 
         // Pastry constructor
-        public Pastry(int pastryCost)
+        public Pastry()
         {
-            PastryCost = pastryCost;
+            PastryCost = 2;
         }
 
         // Calculate pastry deal adjustment
@@ -97,19 +88,12 @@ namespace Bakery.Models
         }
 
         // Calculate total cost of pastry order 
-        public int CalcPastryTotal(int pastries) 
+        public int CalcPastryTotalCost(int pastries) 
         {
             int adjustment = AdjustPastryCost(pastries);
             int pastryTotal = (pastries) * PastryCost - adjustment;
 
             return pastryTotal;
         }
-
-        // Clear all current class instances
-        public static void ClearAll()
-        {
-            _instances.Clear();
-        }
-
     }
 }

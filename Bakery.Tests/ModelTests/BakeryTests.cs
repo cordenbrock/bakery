@@ -1,11 +1,17 @@
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Bakery.Models;
 
-namespace Bakery.Tests
+namespace Bakery.Tests 
 {
-    [TestClass]
-    public class BakeryTests
+    [TestClass] 
+    public class BakeryTests : IDisposable
     {
+        public void Dispose()
+        {
+            Bread.ClearAll();
+            Pastry.ClearAll();
+        }
 
         // Class Bread tests
         [TestMethod]
@@ -32,7 +38,7 @@ namespace Bakery.Tests
 
             Bread bread = new Bread(5);
             int loaves = 10;
-            int breadTotal = bread.AdjustBreadCost(loaves);
+            int breadTotal = bread.CalcBreadTotal(loaves);
 
             Assert.AreEqual(expectedBreadTotal, breadTotal);
         }

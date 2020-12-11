@@ -44,5 +44,16 @@ namespace Bakery.Tests
             Pastry pastry = new Pastry(2);
             Assert.AreEqual(typeof(Pastry), pastry.GetType());
         }
+        [TestMethod]
+        public void AdjustPastryCost_CalculatePastryDealAdjustment_IntAdjustment()
+        {
+            int expectedAdjustment = 0;
+
+            Pastry pastry = new Pastry(2);
+            int pastries = 12;
+            pastry.AdjustPastryCost(pastries);
+
+            Assert.AreEqual(expectedAdjustment, pastry.AdjustPastryCost(pastries));
+        }
     }
 }

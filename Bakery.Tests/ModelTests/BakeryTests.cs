@@ -47,7 +47,7 @@ namespace Bakery.Tests
         [TestMethod]
         public void AdjustPastryCost_CalculatePastryDealAdjustment_IntAdjustment()
         {
-            int expectedAdjustment = 0;
+            int expectedAdjustment = 4;
 
             Pastry pastry = new Pastry(2);
             int pastries = 12;

@@ -76,5 +76,13 @@ namespace Bakery.Models
             return adjustment;
         }
 
+        // Calculate total cost of pastry order 
+        public int CalcPastryTotal(int pastries) 
+        {
+            int adjustment = AdjustPastryCost(pastries);
+            int pastryTotal = (pastries) * PastryCost - adjustment;
+
+            return pastryTotal;
+        }
     }
 }

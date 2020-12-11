@@ -54,13 +54,27 @@ namespace Bakery.Models
         // Auto-implemented fields
         public int PastryCost { get; set; }
 
-        // Bread constructor
+        // Pastry constructor
         public Pastry(int pastryCost)
         {
             PastryCost = pastryCost;
         }
 
+        // Calculate pastry deal adjustment
+        public int AdjustPastryCost(int pastryCount)
+        {
+            int adjustment = 0;
+            if (pastryCount >= 3)
+            {
+                double unroundedPastryCountToDiscount = pastryCount/3;
+                int pastriesToDiscount = (int)(Math.Floor(unroundedPastryCountToDiscount));
+                int discount = 1;
+                int discountCost = (PastryCost - discount); 
+                adjustment =  discountCost * pastriesToDiscount; 
+            }
 
+            return adjustment;
+        }
 
     }
 }

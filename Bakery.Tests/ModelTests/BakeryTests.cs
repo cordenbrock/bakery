@@ -64,7 +64,7 @@ namespace Bakery.Tests
         [TestMethod]
         public void CalcPastryTotal_CalculateTotalCostOfPastryOrder_IntSum()
         {
-            int expectedPastryTotal = 0;
+            int expectedPastryTotal = 20;
 
             Pastry pastry = new Pastry(2);
             int pastries = 12;

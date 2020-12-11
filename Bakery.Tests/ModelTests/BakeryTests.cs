@@ -26,10 +26,10 @@ namespace Bakery.Tests
         [TestMethod]
         public void CalcBreadTotal_CalculateTotalCostOfBreadOrder_IntSum()
         {
-            int expectedBreadTotal = 20;
+            int expectedBreadTotal = 0;
 
             Bread bread = new Bread(5);
-            int loaves = 6;
+            int loaves = 10;
             bread.AdjustBreadCost(loaves);
 
             Assert.AreEqual(expectedBreadTotal, bread.CalcBreadTotal(loaves));

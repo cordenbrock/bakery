@@ -12,5 +12,16 @@ namespace Bakery.Tests
             Bread bread = new Bread(5);
             Assert.AreEqual(typeof(Bread), bread.GetType());
         }
+        [TestMethod]
+        public void AdjustBreadCost_CalculateBreadDealAdjustment_IntAdjustment()
+        {
+            int expectedAdjustment = 10;
+
+            Bread bread = new Bread(5);
+            int loaves = 8;
+            bread.AdjustBreadCost(loaves);
+
+            Assert.AreEqual(expectedAdjustment, bread.AdjustBreadCost(loaves));
+        }
     }
 }

@@ -6,6 +6,8 @@ namespace Bakery.Tests
     [TestClass]
     public class BakeryTests
     {
+
+        // Class Bread tests
         [TestMethod]
         public void Bread_ConstructsInstanceofBread_ObjBread()
         {
@@ -33,6 +35,14 @@ namespace Bakery.Tests
             bread.AdjustBreadCost(loaves);
 
             Assert.AreEqual(expectedBreadTotal, bread.CalcBreadTotal(loaves));
+        }
+
+        // Class Pastry tests
+        [TestMethod]
+        public void Pastry_ConstructsInstanceofPastry_ObjPastry()
+        {
+            Pastry pastry = new Pastry(2);
+            Assert.AreEqual(typeof(Pastry), pastry.GetType());
         }
     }
 }

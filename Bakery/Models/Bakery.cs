@@ -28,7 +28,7 @@ namespace Bakery.Models
             int adjustment = 0;
             if (loaves >= 3)
             {
-                double freeLoaves = loaves/3;
+                double freeLoaves = loaves/2;
                 adjustment = 5 * (int)(Math.Floor(freeLoaves)); 
             }
             return adjustment;

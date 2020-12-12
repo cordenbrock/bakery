@@ -18,21 +18,22 @@ namespace Bakery.Tests
             Order newOrder = new Order(4, 12);
             Assert.AreEqual(typeof(Order), newOrder.GetType());
         }
+
         [TestMethod]
         public void CalcOrderTotalCost_CalculateCostOfBreadAndPastryOrders_Int()
         {
             int breadCount = 4;
             int pastryCount = 12;
-            int expectedTotalCost = 35;
+            int expectedOrderTotalCost = 0;
 
             Order newOrder = new Order(breadCount, pastryCount);
             Bread bread = new Bread();
             Pastry pastry = new Pastry();
             int breadTotalCost = bread.CalcBreadTotalCost(newOrder.BreadOrderCount);
             int pastryTotalCost = pastry.CalcPastryTotalCost(newOrder.PastryOrderCount);
-            int totalCost = newOrder.CalcOrderTotalCost(breadTotalCost, pastryTotalCost);
+            int orderTotalCost = newOrder.CalcOrderTotalCost(breadTotalCost, pastryTotalCost);
 
-            Assert.AreEqual(expectedTotalCost, totalCost);
+            Assert.AreEqual(expectedOrderTotalCost, orderTotalCost);
         }
 
 

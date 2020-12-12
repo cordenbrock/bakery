@@ -24,7 +24,7 @@ namespace Bakery.Tests
         {
             int breadCount = 4;
             int pastryCount = 12;
-            int expectedOrderTotalCost = 0;
+            int expectedOrderTotalCost = 35;
 
             Order newOrder = new Order(breadCount, pastryCount);
             Bread bread = new Bread();

@@ -9,13 +9,19 @@ namespace Bakery.Models
         // Auto-implemented fields
         public int BreadOrderCount { get; set; }
         public int PastryOrderCount { get; set; }
-        public int OrderCost { get; set; }
+        public int OrderTotalCost { get; set; }
 
         // Order constructor
         public Order(int breadOrderCount, int pastryOrderCount)
         {
             BreadOrderCount = breadOrderCount;
             PastryOrderCount = pastryOrderCount;
+        }
+        public int CalcOrderTotalCost(int breadTotalCost, int pastryTotalCost)
+        {
+            int orderTotalCost = breadTotalCost + pastryTotalCost;
+            
+            return orderTotalCost;
         }
         
     }

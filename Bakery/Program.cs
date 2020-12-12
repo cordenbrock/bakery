@@ -6,18 +6,29 @@ namespace Bakery
 {
     public class Program
     {
+    // Static Variables
         static Order newOrder = new Order();
         static Bread bread = new Bread();
         static Pastry pastry = new Pastry();
+        
+    // Init App, i.e. launch
         static void Main()
-        {            
+        {
+            while(true)
+            {
+                GreetUser();
+                DisplayMenu();
+                TakeUserOrder();
 
-            GreetUser();
-            DisplayMenu();
-            TakeUserOrder();
-            DisplayTransactionMessage(newOrder.OrderTotalCost);
+                DisplayTransactionMessage(newOrder.OrderTotalCost);
+
+            }
         }
         
+
+
+    // UI logic
+
         // Greet User
         static void GreetUser() 
         {
@@ -31,20 +42,26 @@ namespace Bakery
         static void DisplayMenu() 
         {
             Console.WriteLine("-------------------------------------------");
-            Console.WriteLine("Breads, Pastries, Deals, Pierre's got 'em");
+            string subheader = "Breads, Pastries, Deals, Pierre's got 'em";
+            DisplayColoredMessage(ConsoleColor.DarkCyan, subheader);
             Console.WriteLine("-------------------------------------------");
-            Console.WriteLine("Bread -- 1 for $5 -- Buy 2, Get 1 Free!");
-            Console.WriteLine("Pastries -- 1 for $2, Buy 2, Get another 1/2 price!");
+            string breadDeal = "Bread -- 1 for $5 -- Buy 2, Get 1 Free!";
+            DisplayColoredMessage(ConsoleColor.Green, breadDeal);
+            string pastryDeal = "Pastries -- 1 for $2, Buy 2, Get another 1/2 Off!";
+            DisplayColoredMessage(ConsoleColor.Green, pastryDeal);
         }
 
         // Get User order
         static void TakeUserOrder() 
         {
             Console.WriteLine("----------------------------------------------");
-            Console.WriteLine("Enter the number of loaves you belly desires:");
+            string breadPrompt = "Enter the number of loaves your belly desires:";
+            DisplayColoredMessage(ConsoleColor.Yellow, breadPrompt);
             newOrder.BreadOrderCount = Int32.Parse(Console.ReadLine());
             Console.WriteLine("----------------------------------------------");
-            Console.WriteLine("Enter the number of pastries your heart desires:");
+            string pastryPrompt = "Enter the number of pastries your heart desires:";
+            DisplayColoredMessage(ConsoleColor.Yellow, pastryPrompt);
+
             newOrder.PastryOrderCount = Int32.Parse(Console.ReadLine());
 
             // Set current cost adjustments
@@ -52,18 +69,15 @@ namespace Bakery
             pastry.AdjustPastryCost(newOrder.PastryOrderCount);
 
             //  Calculate current order costs
-            int breadTotalCost = bread.CalcBreadTotalCost(newOrder.BreadOrderCount);
-            int pastryTotalCost = pastry.CalcPastryTotalCost(newOrder.PastryOrderCount);
-            int orderTotalCost = newOrder.CalcOrderTotalCost(breadTotalCost, pastryTotalCost);
-
-            // Set total cost of order
-            newOrder.OrderTotalCost = orderTotalCost;
+            bread.CalcBreadTotalCost(newOrder.BreadOrderCount);
+            pastry.CalcPastryTotalCost(newOrder.PastryOrderCount);
+            newOrder.CalcOrderTotalCost(bread.BreadOrderTotalCost, pastry.PastryOrderTotalCost);
         }
 
         // Tell user order cost
         static void DisplayTransactionMessage(int orderTotalCost)
         {
-            Console.WriteLine("----------------------------------------------");
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             Console.WriteLine("That'll be a whopping: ${0}", orderTotalCost);
             Console.WriteLine("Thanks for stopping by!");
         }

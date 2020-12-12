@@ -11,16 +11,14 @@ namespace Bakery.Models
         public int OrderTotalCost { get; set; }
 
         // Order constructor
-        public Order() // int breadOrderCount, int pastryOrderCount
-        {
-            // BreadOrderCount = breadOrderCount;
-            // PastryOrderCount = pastryOrderCount;
-        }
-        public int CalcOrderTotalCost(int breadTotalCost, int pastryTotalCost)
+        public Order() {}
+
+        // Calculate order
+        public void CalcOrderTotalCost(int breadTotalCost, int pastryTotalCost)
         {
             int orderTotalCost = breadTotalCost + pastryTotalCost;
 
-            return orderTotalCost;
+             OrderTotalCost = orderTotalCost;
         }
         
     }
@@ -33,6 +31,7 @@ namespace Bakery.Models
         // Auto-implemented fields
         public int BreadCost { get; private set; }
         public int Adjustment { get; set; }
+        public int BreadOrderTotalCost { get; set; }
 
         // Bread constructor
         public Bread()
@@ -54,10 +53,10 @@ namespace Bakery.Models
         }
 
         // Calculate total cost of bread order 
-        public int CalcBreadTotalCost(int loaves) 
+        public void CalcBreadTotalCost(int loaves) 
         {
-            int breadTotal = (loaves) * BreadCost - Adjustment;
-            return breadTotal;
+            int breadOrderTotalCost = (loaves) * BreadCost - Adjustment;
+            BreadOrderTotalCost = breadOrderTotalCost;
         }
     }
 
@@ -69,6 +68,7 @@ namespace Bakery.Models
         // Auto-implemented fields
         public int PastryCost { get; private set; }
         public int Adjustment { get; set; }
+        public int PastryOrderTotalCost { get; set; }
 
         // Pastry constructor
         public Pastry()
@@ -85,18 +85,19 @@ namespace Bakery.Models
                 double unroundedPastryCountToDiscount = pastryCount/3;
                 int pastriesToDiscount = (int)(Math.Floor(unroundedPastryCountToDiscount));
                 int discount = 1;
-                int discountCost = (PastryCost - discount); 
-                adjustment =  discountCost * pastriesToDiscount; 
+                int discountFactor = (PastryCost - discount); 
+                adjustment =  discountFactor * pastriesToDiscount; 
             }
-
+            // Set Adjustment Property
             Adjustment = adjustment;
         }
 
         // Calculate total cost of pastry order 
-        public int CalcPastryTotalCost(int pastries) 
+        public void CalcPastryTotalCost(int pastries) 
         {
-            int pastryTotal = (pastries) * PastryCost - Adjustment;
-            return pastryTotal;
+            int pastryOrderTotalCost = (pastries) * PastryCost - Adjustment;
+            // Set PastryOrderTotalCost Property
+            PastryOrderTotalCost = pastryOrderTotalCost;
         }
     }
 }

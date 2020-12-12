@@ -55,7 +55,7 @@ namespace Bakery.Tests
             Bread bread = new Bread();
             bread.AdjustBreadCost(loaves);
 
-            Assert.AreEqual(expectedAdjustment, bread.Adjustment);
+            Assert.AreEqual(expectedAdjustment, bread.DiscountAdjustment);
         }
         [TestMethod]
         public void CalcBreadTotalCost_CalculateTotalCostOfBreadOrder_IntSum()
@@ -88,7 +88,7 @@ namespace Bakery.Tests
             Pastry pastry = new Pastry();
             pastry.AdjustPastryCost(pastries);
 
-            Assert.AreEqual(expectedAdjustment, pastry.Adjustment);
+            Assert.AreEqual(expectedAdjustment, pastry.DiscountAdjustment);
         }
         [TestMethod]
         public void CalcPastryTotalCost_CalculateTotalCostOfPastryOrder_IntSum()

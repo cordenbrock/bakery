@@ -47,7 +47,7 @@ namespace Bakery.Models
                 double freeLoaves = loaves/3;
                 discountAdjustment = BreadCost * (int)(Math.Floor(freeLoaves)); 
             }
-
+            // Set DiscountAdjustment Property
             DiscountAdjustment = discountAdjustment;
         }
 
@@ -88,7 +88,7 @@ namespace Bakery.Models
                 int discountFactor = (PastryCost - discount); 
                 discountAdjustment =  discountFactor * pastriesToDiscount; 
             }
-            // Set Adjustment Property
+            // Set DiscountAdjustment Property
             DiscountAdjustment = discountAdjustment;
         }
 

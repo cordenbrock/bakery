@@ -19,7 +19,6 @@ namespace Bakery.Models
             int orderTotalCost = breadTotalCost + pastryTotalCost;
             OrderTotalCost = orderTotalCost;
         }
-    
     }
 
 
@@ -65,7 +64,7 @@ namespace Bakery.Models
     // Pastry class
     public class Pastry
     {
-        // Auto-implemented fields
+        // Auto-implemented properties
         public int PastryCost { get; private set; }
         public int DiscountAdjustment { get; set; }
         public int PastryOrderTotalCost { get; set; }
@@ -82,8 +81,8 @@ namespace Bakery.Models
             int discountAdjustment = 0;
             if (pastryCount >= 3)
             {
-                double unroundedPastryCountToDiscount = pastryCount/3;
-                int pastriesToDiscount = (int)(Math.Floor(unroundedPastryCountToDiscount));
+                double unroundedPastriesCountToDiscount = pastryCount/3;
+                int pastriesToDiscount = (int)(Math.Floor(unroundedPastriesCountToDiscount));
                 int discount = 1;
                 int discountFactor = (PastryCost - discount); 
                 discountAdjustment =  discountFactor * pastriesToDiscount; 

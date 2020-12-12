@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace Bakery.Models
 {
@@ -20,7 +19,7 @@ namespace Bakery.Models
         public int CalcOrderTotalCost(int breadTotalCost, int pastryTotalCost)
         {
             int orderTotalCost = breadTotalCost + pastryTotalCost;
-            
+
             return orderTotalCost;
         }
         

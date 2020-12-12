@@ -6,11 +6,16 @@ namespace Bakery
 {
     public class Program
     {
+        static Order newOrder = new Order();
+        static Bread bread = new Bread();
+        static Pastry pastry = new Pastry();
         static void Main()
         {            
+
             GreetUser();
             DisplayMenu();
             TakeUserOrder();
+            DisplayTransactionMessage(newOrder.OrderTotalCost);
         }
         
         // Greet User
@@ -29,7 +34,7 @@ namespace Bakery
             Console.WriteLine("Breads, Pastries, Deals, Pierre's got 'em");
             Console.WriteLine("-------------------------------------------");
             Console.WriteLine("Bread -- 1 for $5 -- Buy 2, Get 1 Free!");
-            Console.WriteLine("Pastries -- 1 for $2, Buy 2, Get another 1/2 price!3");
+            Console.WriteLine("Pastries -- 1 for $2, Buy 2, Get another 1/2 price!");
         }
 
         // Get User order
@@ -37,18 +42,22 @@ namespace Bakery
         {
             Console.WriteLine("----------------------------------------------");
             Console.WriteLine("Enter the number of loaves you belly desires:");
-            int breadCount = Int32.Parse(Console.ReadLine());
+            newOrder.BreadOrderCount = Int32.Parse(Console.ReadLine());
             Console.WriteLine("----------------------------------------------");
             Console.WriteLine("Enter the number of pastries your heart desires:");
-            int pastryCount = Int32.Parse(Console.ReadLine());
-            Order newOrder = new Order(breadCount, pastryCount);
-            Bread bread = new Bread();
-            Pastry pastry = new Pastry();
+            newOrder.PastryOrderCount = Int32.Parse(Console.ReadLine());
+
+            // Set current cost adjustments
+            bread.AdjustBreadCost(newOrder.BreadOrderCount);
+            pastry.AdjustPastryCost(newOrder.PastryOrderCount);
+
+            //  Calculate current order costs
             int breadTotalCost = bread.CalcBreadTotalCost(newOrder.BreadOrderCount);
             int pastryTotalCost = pastry.CalcPastryTotalCost(newOrder.PastryOrderCount);
             int orderTotalCost = newOrder.CalcOrderTotalCost(breadTotalCost, pastryTotalCost);
+
+            // Set total cost of order
             newOrder.OrderTotalCost = orderTotalCost;
-            DisplayTransactionMessage(newOrder.OrderTotalCost);
         }
 
         // Tell user order cost

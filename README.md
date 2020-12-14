@@ -13,18 +13,18 @@
 
 ## Setup Instructions
 
-   _**Note**: [.NET Core](https://dotnet.microsoft.com/download) must be installed for the following instructions (v 2.2 for current source code, later versions may be used by editing the ` <TargetFramework> ` element in Bakery.csproj to reflexct the correct version)._
+   _**Note**: [.NET Core](https://dotnet.microsoft.com/download) must be installed for the following instructions (v 2.2 for current source code, later versions may be used by editing the ` <TargetFramework> ` element in Bakery.csproj to reflect the correct version)._
 
 * To run program:
 
 1. Clone this repository: ` git clone https://github.com/cordenbrock/bakery.git `
-2. Navigate to this specific directory: ` cd bakery/Bakery `
+2. Navigate to this specific directory from project folder root: ` cd bakery/Bakery `
 3. Run the program in in your terminal with a ` dotnet run ` command (this will install the necessary dependencies and build the app).
 4. To exit, ` ctrl + C ` on Windows or ` cmd + C ` on Mac.
 
 * To run program tests:
 
-5. Navigate to this specific directory: ` cd bakery/Bakery.Tests `. If navigating from the aforementioned directory, be sure to first navigate "up" a folder, i.e. prepend a ` ../ ` to the path.
+5. Navigate to this specific directory from project folder root: ` cd bakery/Bakery.Tests `. If navigating from the aforementioned directory, be sure to first navigate "up" a folder, i.e. prepend a ` ../ ` to the path.
 6. Run the tests with a ` dotnet test ` command.
 
 ## Built with/Tools used

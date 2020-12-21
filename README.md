@@ -5,7 +5,7 @@
 
 ## _What_ does it do?
 
-* Pierre's Bakery is a basic console app that prompts a user with a friendly greeting and a menu to order bread and pastries from. After accepting the user's order and crunching the numbers for all of Pierre's sweet deals, the app returns the a transaction message that displays the total cost of the order and Pierre's signature gratitude.
+* Pierre's Bakery is a basic console app that prompts a user with a friendly greeting and a menu to order bread and pastries from. After accepting the user's order and crunching the numbers for all of Pierre's sweet deals, the app returns the a transaction message that displays the total cost.
 
 ## _Why_ does it do?
 

@@ -6,23 +6,16 @@ namespace Bakery
 {
     public class Program
     {
-    // Static Variables
         static Order newOrder = new Order();
         static Bread bread = new Bread();
         static Pastry pastry = new Pastry();
         
-    // Init App, i.e. launch
         static void Main()
         {
-            while(true)
-            {
-                GreetUser();
-                DisplayMenu();
-                TakeUserOrder();
-
-                DisplayTransactionMessage(newOrder.OrderTotalCost);
-
-            }
+            GreetUser();
+            DisplayMenu();
+            TakeUserOrder();
+            DisplayTransactionMessage(newOrder.OrderTotalCost);
         }
         
 
@@ -78,7 +71,7 @@ namespace Bakery
         static void DisplayTransactionMessage(int orderTotalCost)
         {
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-            Console.WriteLine("That'll be a whopping: ${0}", orderTotalCost);
+            Console.WriteLine("Order Total: ${0}", orderTotalCost);
             Console.WriteLine("Thanks for stopping by!");
         }
 
